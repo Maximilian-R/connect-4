@@ -2,7 +2,7 @@ let gridSize = 7;
 let xInaRow = 4;
 let players = 2;
 let board;
-let playerTurn = 1;
+let playerTurn = 0;
 let tileHistory = [];
 let gameoverState = false;
 
@@ -25,6 +25,16 @@ gameElement.addEventListener("click", (event) => {
     const column = index % gridSize;
 
     play(playerTurn, column);
+  } else {
+    const x = event.offsetX;
+    const tiles = Array.from(gameElement.querySelectorAll(".tile"))
+      .slice(0, gridSize)
+      .map((element) => element.offsetLeft + element.offsetWidth / 2);
+    const closest = tiles.reduce((prev, curr) =>
+      Math.abs(curr - x) < Math.abs(prev - x) ? curr : prev
+    );
+    const column = tiles.indexOf(closest);
+    play(playerTurn, column);
   }
 });
 
@@ -33,7 +43,9 @@ function getTileId(row, column) {
 }
 
 function restart() {
-  playerTurn = 1;
+  if (playerTurn > players || playerTurn === 0) {
+    nextTurn();
+  }
   gameoverState = false;
   tileHistory = [];
   gameElement.querySelectorAll(".tile").forEach((child) => {

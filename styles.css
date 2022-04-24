@@ -231,3 +231,18 @@ button {
   border-radius: 50%;
   transition: background-color 200ms ease-in-out;
 }
+
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .board {
+    width: min(100vw - 2rem, 100vh - 2rem);
+    height: min(100vw - 2rem, 100vh - 2rem);
+  }
+
+  .game {
+    gap: 0.5rem;
+  }
+}
