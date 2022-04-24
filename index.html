@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link href="styles.css" rel="stylesheet" />
+
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <div class="board">
+      <div class="game"></div>
+    </div>
+    <div class="modal show">
+      <div class="modal-area" id="gameover-text"></div>
+      <div class="modal-area" id="menu">
+        <h3>Players</h3>
+        <ul id="settings-players" class="settings"></ul>
+        <h3>Size</h3>
+        <ul id="settings-size" class="settings"></ul>
+        <h3>Connect</h3>
+        <ul id="settings-connect" class="settings"></ul>
+
+        <button>Start Game</button>
+      </div>
+    </div>
+
+    <div class="gui">
+      <div>Turn:</div>
+      <div class="current-player player1"></div>
+    </div>
+  </body>
+</html>
